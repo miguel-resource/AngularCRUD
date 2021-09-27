@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
   isEdit: boolean = false;
 
   constructor(
-
     private modalService: NgbModal,
     public fb: FormBuilder,
     private fireBaseService: FirebaseServiceService,
@@ -40,7 +39,8 @@ export class AppComponent implements OnInit {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required]
     })
-
+    
+    //Insertar todos los datos
     this.fireBaseService.getAllStudents().subscribe(resp => {
       this.collection.data = resp.map((e:any) => {
         return {
